@@ -55,23 +55,16 @@ var ALGraph = (function(){
   //use DFS to find whether this path exist
   ALGraph.prototype.vertexIsSearchable = function(star,end,visited){
     if(star == end) return true;
-    visited.push(star);
+    visited[star]=1;   //use visited as an dictionary
     var nbs = this.neighbors(star);
-    var TF = false, contain = false;
+    var TF = false;
 
     for(let v in nbs){
-      contain = false;
-      for(let i = 0; i < visited.length; i++){
-        if(visited[i] == nbs[v]){
-          contain = true;
-          break;
-        }
+      if(visited[nbs[v]]==1)  continue;
+      TF = this.vertexIsSearchable(nbs[v],end,visited);
+      if(TF){
+        return true;  //if any of the nighbor is reachable, return true
       }
-      if(!contain){}
-          TF = this.vertexIsSearchable(nbs[v],end,visited);
-          if(TF){
-            return true;
-          }
     }
     return false;
   }
