@@ -3,7 +3,7 @@ let X2 = [11, 3, 1, 8, 10, 2, 20];
 let X3 = [10,7,4,3,1];
 
 function findInterval(arr){
-	var result = [-1, -1];	//but, sell index
+	var result = [-1, -1];	//buy, sell index
 	var temp_min_index;
 	var i;
 
