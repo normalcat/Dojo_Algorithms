@@ -1,9 +1,9 @@
 var Node = (function(){
 
   function Node(data, left, right) {
-    this.data = data;
-    this.left = left;
-    this.right = right;
+    this.data = data;			//data in the node
+    this.left = left;			//left child
+    this.right = right;			//right child
   }
 
   Node.prototype.show = function() {
