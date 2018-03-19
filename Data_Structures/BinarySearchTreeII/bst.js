@@ -1,8 +1,8 @@
 var Node = require('./node');
 
 var BST = (function(){
-  function BST() {
-    this.root = null;
+  function BST() {            //constructor
+    this.root = null;         //initialize
   };
 
   BST.prototype.insert = function(data) {
@@ -60,35 +60,34 @@ var BST = (function(){
     }
   };
 
-  BST.prototype.getMin = function() {
-    if(!this.root)  return null;
+  BST.prototype.getMin = function() {     //min is all the way to the left child
+    if(!this.root)  return null;          //nothing, so return null
     var pt = this.root;
     while(pt){
       if(pt.left) pt=pt.left;
-      else  return pt.data;
+      else  return pt.data;               //the left most leaf
     }
   }
 
-  BST.prototype.getMax = function() {
-    if(!this.root)  return null;
+  BST.prototype.getMax = function() {     //max is all the way to the right leave
+    if(!this.root)  return null;          //nothing, so return null
     var pt = this.root;
     while(pt){
       if(pt.right)  pt=pt.right;
-      else  return pt.data;
+      else  return pt.data;               //the right most leaf
     }
   }
 
-  BST.prototype.find = function(data) {
-    if(!this.root)  return null;
+  BST.prototype.find = function(data) {   //return the node contains the data
+    if(!this.root)  return null;          //if the tree is empty, return null
     var pt = this.root;
     while(pt){
       if(data == pt.data) return pt;
       if(data < pt.data)  pt = pt.left;
       if(data > pt.data)  pt = pt.right;
     }
-    return pt;
+    return pt;    //return this particular node
   }
-
 
   return BST;
 })();
