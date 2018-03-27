@@ -1,13 +1,13 @@
 var Vertex = require('./vertex');
 
 var ALGraph = (function(){
-  function ALGraph() {
-    this.vertices = [];
-    this.al = {};     //its a dictionary
+  function ALGraph() {      //adjacent list graph
+    this.vertices = [];     //intialize empty vertices
+    this.al = {};           //its a dictionary
   }
 
   ALGraph.prototype.getSize = function(){
-    return this.vertices.length;
+    return this.vertices.length;  //return number of vertices
   }
 
   //there will be no duplicated vals in the graph
@@ -21,7 +21,7 @@ var ALGraph = (function(){
     this.al[val] = [];  //initialize the dictionary
   }
 
-  ALGraph.prototype.getVertexID = function(val){
+  ALGraph.prototype.getVertexID = function(val){  
     for(let i = 0; i < this.vertices.length; i++)
       if(this.vertices[i] == val) return i; //return the ID
     return false;   //not found
@@ -61,10 +61,8 @@ var ALGraph = (function(){
 
     for(let v in nbs){
       if(visited[nbs[v]]==1)  continue;
-      TF = this.vertexIsSearchable(nbs[v],end,visited);
-      if(TF){
-        return true;  //if any of the nighbor is reachable, return true
-      }
+      TF = this.vertexIsSearchable(nbs[v],end,visited);   //Recursion
+      if(TF)  return true;  //if any of the nighbor is reachable, return true
     }
     return false;
   }
