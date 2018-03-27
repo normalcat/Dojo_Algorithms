@@ -7,7 +7,7 @@ function findInterval(arr){
 	var temp_min_index;
 	var i;
 
-	if(arr.length < 2){
+	if(arr.length < 2){		//boundary conditions
 		console.log("Do not have enough data points");
 		return result;
 	}
@@ -26,8 +26,7 @@ function findInterval(arr){
 	for(i=i+1;i<arr.length;i++){
 		if(arr[i] < arr[result[0]]){
 			temp_min_index = i;		//if it is smaller, keep the info
-		}
-		if(arr[i] >= arr[result[1]]){
+		}else if(arr[i] >= arr[result[1]]){
 			result[0] = temp_min_index;
 			result[1] = i;
 		}
